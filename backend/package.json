@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^4.17.1",
+    "neo4j-driver": "^4.4.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
+
