@@ -36,3 +36,24 @@ Configuramos hosts
 Comprobamos
 
 ![alt text](image-4.png)
+
+
+# Punto 3 - Middlewares
+
+Primero instalamos htpasswd
+`sudo apt-get update` y
+`sudo apt-get install apache2-utils`
+
+Generamos el hash con usuario: `admin` y contraseña:`admin`
+![alt text](image-5.png)
+
+Modificamos el `docker-compose.yml` poniendo los labels para Basic Auth y rateLimit. En este caso ponemos `average=5` y `burst=10` para que maneje 5 pteciones por segundo y 10 de golpe.
+
+### Comprobaciones
+
+Comprobamos que para acceder al dashboard pide credenciales
+![alt text](image-6.png)
+
+Comprobamos que recibe 10 peticiones de golpe, desde 11 da el codigo 429 `Too Many Requests`
+
+![alt text](image-7.png)
