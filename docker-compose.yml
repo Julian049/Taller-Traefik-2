@@ -18,6 +18,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - traefik_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=Host(`ops.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.http.routers.dashboard.service=api@internal"
 
   julian-neo4j:
     image: neo4j:latest
@@ -42,6 +46,13 @@ services:
       - .env
     networks:
       - traefik_network
+    labels:
+      - "traefik.enable=true"
+      # Router principal
+      - "traefik.http.routers.api.rule=Host(`api.localhost`)"
+      - "traefik.http.routers.api.service=api-service"
+      # Service
+      - "traefik.http.services.api-service.loadbalancer.server.port=3000"
 
 volumes:
   neo4j_data:
