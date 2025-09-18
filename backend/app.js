@@ -14,6 +14,16 @@ const driver = neo4j.driver(
   neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASSWORD)
 );
 
+//Endpoint de salud
+app.get("/health", (req, res) => {
+  res.status(200).json({ 
+    status: "OK", 
+    timestamp: new Date().toISOString(),
+    hostname: require('os').hostname(),
+    service: "movies-api"
+  });
+});
+
 // Endpoint GET /movies
 app.get("/movies", async (req, res) => {
   const session = driver.session();
