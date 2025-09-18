@@ -1,35 +1,51 @@
+version: '3.8'
+
 services:
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik_proxy
+    restart: unless-stopped
+    command:
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.docker.network=traefik_network
+      - --entrypoints.web.address=:80
+      - --log.level=INFO
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - traefik_network
+
   julian-neo4j:
     image: neo4j:latest
     container_name: neo4j_db_1
-    restart: always
+    restart: unless-stopped
     environment:
       - NEO4J_AUTH=${NEO4J_USER}/${NEO4J_PASSWORD}
-    ports:
-      - "7474:7474"
-      - "7687:7687"
+  
     volumes:
       - neo4j_data:/data
       - ./import:/import
     networks:
-      - network
+      - traefik_network
 
   backend:
     build: ./backend
-    container_name: express_backend
-    restart: always
+    restart: unless-stopped
     depends_on:
       - julian-neo4j
+      - traefik
     env_file:
       - .env
-    ports:
-      - "${EXPRESS_PORT}:3000"
     networks:
-      - network
+      - traefik_network
 
 volumes:
   neo4j_data:
-  
+
 networks:
-  network:
+  traefik_network:
     driver: bridge
