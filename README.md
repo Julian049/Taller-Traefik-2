@@ -18,4 +18,21 @@ Ademas se comprueba que Neo4J ya no es accesible desde el host
 
 ![alt text](image-2.png)
 
+- **Red única**: `traefik_network` (bridge)
+- **Servicios en la red**: traefik, backend, neo4j
+- **Neo4j**: NO expuesto al host, solo acceso interno via DNS
+
 # Punto 2 - Rutas Estructuradas
+
+Editamos /etc/hosts
+
+![alt text](image-3.png)
+
+Configuramos hosts
+
+- **API**: http://api.localhost/
+- **Dashboard**: http://ops.localhost/dashboard/
+
+Comprobamos
+
+![alt text](image-4.png)
