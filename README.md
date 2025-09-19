@@ -2,7 +2,7 @@
 
 # Autores
 **Diego Alejandro Gil Otálora** Cod:202222152<br>
-**JUlian David Bocanegra Segura** Código: 202220214  
+**Jlian David Bocanegra Segura** Cod: 202220214  
 Universidad Pedagógica y Tecnológica de Colombia  
 Ingeniería de Sistemas y Computación - Sistemas Distribuidos  
 Tunja, 2025 
@@ -61,3 +61,18 @@ Comprobamos que recibe 10 peticiones de golpe, desde 11 da el codigo 429 `Too Ma
 
 # Punto 4 - Balanceo (Replicas de la API)
 
+Para este ejercicio usamos el metodo `--scale`
+
+![alt text](image-8.png)
+
+Comprobamos
+
+![alt text](image-9.png)
+Se evidencian las replicas `taller-traefik-2_backend_1` y `taller-traefik-2_backend_2`
+
+Hacemos un Test 
+![alt text](image-10.png)
+La Replica 1 recibio 5 peticiones y la replica 2 recibio otras 5 peticiones
+
+- Logs en cada replica
+![alt text](image-11.png)
