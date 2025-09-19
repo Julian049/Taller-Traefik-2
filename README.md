@@ -152,6 +152,26 @@ Revisando el dashboard de trafik podemos ver los diferentes routers, middlewares
 
 ![WhatsApp Image 2025-09-18 at 22 55 28](https://github.com/user-attachments/assets/e800fdb8-d460-4fdf-a683-8735a902d263)
 
+# Punto extra
+Para controlar los errores 400 y 500 en un middleware podemos usar estos labels en el `compose`:
+```
+
+backend:
+  labels:
+      - "traefik.http.middlewares.error-middleware.errors.status=400-499,500-599"
+      - "traefik.http.middlewares.error-middleware.errors.service=api-service"
+      - "traefik.http.middlewares.error-middleware.errors.query=/error?status={status}"
+```
+
+Tambien tenemos que cambiar la linea general de los middlewares en backend por
+```
+      - "traefik.http.routers.api.middlewares=rate-limit, error-middleware"
+```
+Con esto podemos redireccionar los errores al endpoint `/error` 
+
+Para probarlo podemos usar la forma facil, la cual es ejecutando POST mal a posta para que nos de el error
+
+<img width="1809" height="366" alt="image" src="https://github.com/user-attachments/assets/d8d0fbd7-12f8-49b4-9d3b-956c84e019a1" />
 
 
 # Reflexión técnica
