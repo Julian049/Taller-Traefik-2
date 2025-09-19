@@ -2,7 +2,7 @@
 
 # Autores
 **Diego Alejandro Gil Otálora** Cod:202222152<br>
-**Jlian David Bocanegra Segura** Cod: 202220214  
+**Julian David Bocanegra Segura** Cod: 202220214  
 Universidad Pedagógica y Tecnológica de Colombia  
 Ingeniería de Sistemas y Computación - Sistemas Distribuidos  
 Tunja, 2025 
