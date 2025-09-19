@@ -57,3 +57,7 @@ Comprobamos que para acceder al dashboard pide credenciales
 Comprobamos que recibe 10 peticiones de golpe, desde 11 da el codigo 429 `Too Many Requests`
 
 ![alt text](image-7.png)
+
+
+# Punto 4 - Balanceo (Replicas de la API)
+
