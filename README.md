@@ -129,7 +129,7 @@ Revisamos desde el navegegador o desde la consola que el endpoint /health si fun
 <img width="1529" height="250" alt="image" src="https://github.com/user-attachments/assets/04f7f484-2a85-4aa8-b24a-9f673674efbf" />
 
 
-## Endpoint get (/get)
+## Endpoint get (/movies)
 Al ejecutar el respectivo endpoint para recuperar las peliculas podemos evidenciar
 <img width="985" height="1068" alt="image" src="https://github.com/user-attachments/assets/46f39406-8db0-4f5b-a4d2-900effd13954" />
 
@@ -148,6 +148,9 @@ Revisando el dashboard de trafik podemos ver los diferentes routers, middlewares
 <img width="1448" height="627" alt="image" src="https://github.com/user-attachments/assets/e6fcc179-2b57-497c-ac8b-752681aec563" />
 
 
+# Diagrama
+
+![WhatsApp Image 2025-09-18 at 22 55 28](https://github.com/user-attachments/assets/e800fdb8-d460-4fdf-a683-8735a902d263)
 
 
 
