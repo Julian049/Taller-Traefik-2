@@ -130,7 +130,7 @@ backend:
 
 
 
-# Reflexion tecnica
+# Reflexión técnica
 
 - Qué aporta Traefik frente a mapear puertos directamente?
  R/ Cuando se mapea con puertos directos cada servcio tiene un puerto distinto, se puede complicar si son muchos. Con Traefik existe un solo punto de entrada, además de rutas limpias 
