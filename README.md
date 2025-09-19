@@ -8,13 +8,13 @@ Ingeniería de Sistemas y Computación - Sistemas Distribuidos
 Tunja, 2025 
 
 
-# Punto 1 - Topologia y redes
+# Punto 1 - Topología y redes
 
-Para esto se modifico la red en el `docker-compose.yml` para que traefik, api (réplicas), neo4j vivan en una aplicacion de red unica
+Para esto se modificó la red en el `docker-compose.yml` para que traefik, api (réplicas), neo4j vivan en una aplicación de red única
 
 ![alt text](image.png)
 
-Ademas se comprueba que Neo4J ya no es accesible desde el host
+Además se comprueba que Neo4J ya no es accesible desde el host
 
 ![alt text](image-2.png)
 
@@ -133,10 +133,10 @@ backend:
 # Reflexion tecnica
 
 - Qué aporta Traefik frente a mapear puertos directamente?
- R/ Cuando se mapea con puertos directos cada servcio tiene un puerto distinto, se puede complicar si son muchos. Con Traefik existe un solo punto de entrada, ademas de rutas limpias 
+ R/ Cuando se mapea con puertos directos cada servcio tiene un puerto distinto, se puede complicar si son muchos. Con Traefik existe un solo punto de entrada, además de rutas limpias 
 
 - ¿Qué middlewares usarían en producción y por qué?
-R/ Usariamos RateLimit ya que evita abusos sobre los servicios y sobrecarga de servidor. Ademas usariamos BasicAuth para proteger accesos internos.
+R/ Usaríamos RateLimit ya que evita abusos sobre los servicios y sobrecarga de servidor. Ademas usariamos BasicAuth para proteger accesos internos.
 
 - Riesgos de dejar el dashboard “abierto” y cómo mitigarlos.
 R/ El riesgo es que cualquiera puede ver y atacar nuestra infraestructura. Se puede mitigar no exponiendolo en internet o con credenciales (auth)
